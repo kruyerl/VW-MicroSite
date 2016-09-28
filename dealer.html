@@ -1,0 +1,123 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="LDKcreatives.com">
+
+    <title></title> 
+
+  <link rel="stylesheet" href="./Assets/vwstyle.css">
+
+  <link rel="stylesheet" href="./Assets/slick.css">
+  <link rel="stylesheet" href="./Assets/normalize.min.css">
+  <link rel="stylesheet" href="./Assets/main.min.css">
+  <link rel="stylesheet" href="./Assets/styles.css">
+  
+
+  <script src="./Assets/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body onload="bodyLoadedHandler()" data-gr-c-s-loaded="true">
+
+<div class="wrapper">
+  <div class="nav-wrapper">
+    <div class="nav-item">
+      <a class="contact-link" href="index.html"><img src="Images/nav/nav-logo.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link"  href="specials.html"><img src="Images/nav/nav-specials.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link" href="explore.html"><img src="Images/nav/nav-explore.jpg"></a>
+    </div>
+    
+    <div class="nav-item">
+      <a class="contact-link" href="dealer.html"><img src="Images/nav/nav-dealer-select.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link" href="contact.html"><img src="Images/nav/nav-contact.jpg"></a>
+    </div>
+  </div>
+
+	 <div class="content-wrapper">
+    
+      <div class="background-wrapper">
+        <img src="Images/dealer/dealer-main.jpg">
+      </div>
+
+      <div class="select-wrapper">
+      <a class="contact-link" href="dealers/dealer-map.html"><div class="select-area select-map"></div></a>
+        <a class="contact-link" href="dealers/dealer-bellville.html"><div class="select-area select-one"></div></a>
+        <a class="contact-link" href="dealers/dealer-culemborg.html"><div class="select-area select-two"></div></a>
+        <a class="contact-link" href="dealers/dealer-n1city.html"><div class="select-area select-three"></div></a>
+        <a class="contact-link" href="dealers/dealer-tokai.html"><div class="select-area select-four"></div></a>
+      </div>
+
+  </div>
+
+</div>
+
+
+   <script src="./Assets/UserActivityReporter.js"></script>
+    <script src="./Assets/TaxiInteractiveUtils.js"></script>
+
+    <script src="./Assets/jquery-1.11.2.min.js"></script>
+    <script src="./Assets/slick.min.js"></script>
+    <script src="./Assets/plugins.js"></script>
+
+
+    <script type="text/javascript">
+
+    
+/*=== MAIN APPLICATION JS ===*/
+
+$(document).ready(function(){
+        $('.slickthis').slick({
+          speed: "600",
+        arrows: false,
+        autoplay: true
+        });
+
+        $('.slickNav').slick({
+        speed: "600",
+        fade: true,
+        asNavFor: ".slickthis"
+      });
+
+      });
+
+/*===  End of MAIN APPLICATION JS  ===*/
+
+  
+  </script>
+    <script>
+    /*----------  Taxi Utils (Form handling)  ----------*/
+
+      function bodyLoadedHandler(){
+          //DO NOT CHANGE THIS CODE
+          TaxiInteractiveUtils.initialize();
+
+          var urlParams = window.location.search.substr(1);
+
+          if(urlParams && urlParams.length>0){
+              //alert(urlParams);
+              $( ".contact-link" ).each(function( index ) {
+                  var newURL = $(this).attr("href") + "?" + urlParams;
+                  $(this).attr("href", newURL);
+              });
+          }
+      }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="LDKcreatives.com">
+
+    <title></title> 
+
+  <link rel="stylesheet" href="./Assets/vwstyle.css">
+
+  <link rel="stylesheet" href="./Assets/slick.css">
+  <link rel="stylesheet" href="./Assets/normalize.min.css">
+  <link rel="stylesheet" href="./Assets/main.min.css">
+  <link rel="stylesheet" href="./Assets/styles.css">
+  
+
+  <script src="./Assets/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body onload="bodyLoadedHandler()" data-gr-c-s-loaded="true">
+
+<div class="wrapper">
+  <div class="nav-wrapper">
+    <div class="nav-item">
+      <a class="contact-link"  href="index.html"><img src="Images/nav/nav-logo.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link"  href="specials.html"><img src="Images/nav/nav-specials.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link"  href="explore.html"><img src="Images/nav/nav-explore-select.jpg"></a>
+    </div>
+    
+    <div class="nav-item">
+      <a class="contact-link"  href="dealer.html"><img src="Images/nav/nav-dealer.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link"  href="contact.html"><img src="Images/nav/nav-contact.jpg"></a>
+    </div>
+  </div>
+
+		
+
+  <div class="content-wrapper explorer">
+    <div class="slickNav">
+      <button type="button" class="slick-prev  hidden">Previous</button>
+      <button type="button" class="slick-next  hidden">Next</button>
+    </div> 
+    
+    <div class="slickthis">
+
+      <div class="slide">
+        <div class="slide-header">
+          <a class="contact-link"  href="#"><img src="Images/Explore/passenger/header.jpg"></a>
+        </div>
+
+        <div class="slide-cta passengercar">
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-polovivo.html"><img class="" src="Images/Explore/passenger/1.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-polo.html"><img class="" src="Images/Explore/passenger/2.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-polosedan.html"><img class="" src="Images/Explore/passenger/3.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-up.html"><img class="" src="Images/Explore/passenger/4.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-golfgti.html"><img class="" src="Images/Explore/passenger/5.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-jetta.html"><img class="" src="Images/Explore/passenger/6.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-passat.html"><img class="" src="Images/Explore/passenger/7.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-tiguan.html"><img class="" src="Images/Explore/passenger/8.jpg"></a></div>
+          <div class="onethird passengercar"><a class="contact-link"  href="cars/car-touareg.html"><img class="" src="Images/Explore/passenger/9.jpg"></a></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+ <script src="./Assets/UserActivityReporter.js"></script>
+    <script src="./Assets/TaxiInteractiveUtils.js"></script>
+
+    <script src="./Assets/jquery-1.11.2.min.js"></script>
+    <script src="./Assets/slick.min.js"></script>
+    <script src="./Assets/plugins.js"></script>
+
+
+    <script type="text/javascript">
+
+    
+/*=== MAIN APPLICATION JS ===*/
+
+$(document).ready(function(){
+        $('.slickthis').slick({
+          speed: "600",
+        arrows: false,
+        autoplay: true
+        });
+
+        $('.slickNav').slick({
+        autoplay: true,
+        fade: true,
+        asNavFor: ".slickthis"
+      });
+
+      });
+
+
+/*===  End of MAIN APPLICATION JS  ===*/
+
+  
+  </script>
+
+
+    <script>
+    /*----------  Taxi Utils (Form handling)  ----------*/
+
+      function bodyLoadedHandler(){
+          //DO NOT CHANGE THIS CODE
+          TaxiInteractiveUtils.initialize();
+
+          var urlParams = window.location.search.substr(1);
+
+          if(urlParams && urlParams.length>0){
+              //alert(urlParams);
+              $( ".contact-link" ).each(function( index ) {
+                  var newURL = $(this).attr("href") + "?" + urlParams;
+                  $(this).attr("href", newURL);
+              });
+          }
+      }
+
+
+    </script>
+
+
+</body>
+</html>

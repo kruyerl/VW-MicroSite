@@ -1,0 +1,195 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	       
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title></title>
+
+	<meta name="description" content="">
+	<meta name="author" content="LDKcreatives.com">
+
+	<link rel="stylesheet" href="./Assets/slick.css">
+	<link rel="stylesheet" href="./Assets/normalize.min.css">
+	<link rel="stylesheet" href="./Assets/main.min.css">
+	<link rel="stylesheet" href="./Assets/styles.css">
+	<link rel="stylesheet" href="./Assets/vwstyle.css">
+
+	<script src="./Assets/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body onload="bodyLoadedHandler()" data-gr-c-s-loaded="true">
+
+<div class="wrapper">
+	<div class="nav-wrapper">
+    <div class="nav-item">
+      <a class="contact-link" href="index.html"><img src="Images/nav/nav-logo.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link" href="specials.html"><img src="Images/nav/nav-specials.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link" href="explore.html"><img src="Images/nav/nav-explore.jpg"></a>
+    </div>
+    
+    <div class="nav-item">
+      <a class="contact-link"  href="dealer.html"><img src="Images/nav/nav-dealer.jpg"></a>
+    </div>
+    <div class="nav-item">
+      <a class="contact-link" href="contact.html"><img src="Images/nav/nav-contact-select.jpg"></a>
+    </div>
+  </div>
+
+	<div class="content-wrapper contact">
+
+
+
+     <div class="pageContent">
+        <div class="inputForm">
+            <form>
+                <span class="textInputLabel">Name &amp; Surname<br></span>
+                <input id="fullNameInput" class="textInput" type="text" name="firstname"><br>
+
+                <span class="textInputLabel">Contact Number<br></span>
+                <input id="numberInput" class="textInput" type="tel" name="number"><br>
+
+                <span class="textInputLabel">Email Address<br></span>
+                <input id="emailInput" class="textInput" type="email" name="email"><br>
+
+                <span class="textInputLabel">Would you like a phone call, test drive or service?<br></span>
+                <input id="optionInput" class="textInput" type="text" name="option"><br>
+               
+                <span class="textInputLabel">Which branch is closest to you?<br>
+                Bellville, Culemborg, N1 City or Tokai<br></span>
+                <input id="dealerInput" class="textInput" type="text" name="option"><br>
+
+                <input class="submitButton" onclick="clickHandler(event)" type="button" value="Submit">
+            </form>
+        </div>
+
+        <div class="thankYouView success-message">
+            <h1 class="thankYou">YOUR INPUT HAS BEEN SAVED.<BR>THANK YOU VERY MUCH!</h1>
+        </div>
+
+    </div>
+
+
+
+
+	</div>
+
+</div>
+
+
+
+ <script src="./Assets/UserActivityReporter.js"></script>
+    <script src="./Assets/TaxiInteractiveUtils.js"></script>
+    <script src="./Assets/jquery-1.11.2.min.js"></script>
+    <script src="./Assets/slick.min.js"></script>
+    <script src="./Assets/plugins.js"></script>
+
+
+    <script type="text/javascript">
+
+    
+/*=== MAIN APPLICATION JS ===*/
+
+$(document).ready(function(){
+        $('.slickthis').slick({
+          speed: "600",
+        arrows: false,
+        autoplay: true
+        });
+
+        $('.slickNav').slick({
+        speed: "600",
+        fade: true,
+        asNavFor: ".slickthis"
+      });
+
+      });
+
+/*===  End of MAIN APPLICATION JS  ===*/
+
+  
+  </script>
+
+
+    <script>
+    /*----------  Taxi Utils (Form handling)  ----------*/
+
+      function bodyLoadedHandler(){
+          //DO NOT CHANGE THIS CODE
+          TaxiInteractiveUtils.initialize();
+
+          var urlParams = window.location.search.substr(1);
+
+          if(urlParams && urlParams.length>0){
+              //alert(urlParams);
+              $( ".contact-link" ).each(function( index ) {
+
+                  var newURL = $(this).attr("href") + "?" + urlParams;
+                  $(this).attr("href", newURL);
+
+                  //console.log(newURL);
+
+              });
+          }
+
+      }
+
+      function clickHandler(event){
+
+          try{
+              // DO NOT REMOVE OR MODIFY THIS CODE
+              event.preventDefault();
+              event.stopImmediatePropagation();
+              //alert('click handler!');
+
+              // fetch the data
+              var fullName = $("#fullNameInput").val();
+              var contactNumber = $("#numberInput").val();
+              var email = $("#emailInput").val();
+              var optionChoice = $("#optionInput").val();
+              var dealerChoice = $("#dealerInput").val();
+
+              //this object should contain user input data
+              var transportObject = {
+                  "name":fullName,
+                  "contactNumber":contactNumber,
+                  "eMail":email,
+                  "contactOption":optionChoice,
+                  "dealerOption":dealerChoice
+              };
+
+              // call API in order to send user input data to main application
+              // do not change these lines of code
+              TaxiInteractiveUtils.broadcastMessage("writeStats",
+                      {
+                          statsId: TaxiInteractiveUtils.getInputParameter("formId"),
+                          campaignId: TaxiInteractiveUtils.getInputParameter("campaignId"),
+                          type:"form_input",
+                          details:transportObject
+                      });
+              //////////////////////////////////////////////////////////////////
+
+              // hide form
+              $(".form-group").css('display','none');
+              $(".success-message").css('display','block');
+          }catch(error){
+              alert("Error sending stats to main app!");
+          }
+
+    }
+
+    </script>
+
+
+</body>
+</html>
