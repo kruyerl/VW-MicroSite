@@ -47,11 +47,7 @@
   </div>
 
 	<div class="content-wrapper">
-    <div class="slickNav">
-		<button type="button" class="slick-prev  hidden">Previous</button>
-		<button type="button" class="slick-next  hidden">Next</button>
-	   </div>
-		
+    		
 		<div class="slickthis">
 
 			<!--  -->
@@ -178,15 +174,11 @@
 $(document).ready(function(){
         $('.slickthis').slick({
           speed: "600",
-        arrows: false,
+        arrows: true,
         autoplay: true
         });
 
-        $('.slickNav').slick({
-        autoplay: true,
-        fade: true,
-        asNavFor: ".slickthis"
-      });
+        
 
       });
 

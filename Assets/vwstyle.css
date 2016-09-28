@@ -91,6 +91,36 @@ div.slide-cta {
     top: 330px
 }
 
+/*button slick*/
+
+.slick-arrow.slick-prev{
+    display: inline-block;
+    position: absolute;
+    z-index: 9999;
+    top: 260px;
+    width: 31px;
+    height: 44px;
+    border: none;
+    outline: 0;
+    left: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    background-image: url("../Images/nav/left_arrow.png");
+}
+.slick-arrow.slick-next{
+    display: inline-block;
+    position: absolute;
+    z-index: 9999;
+    top: 260px;
+    width: 31px;
+    height: 44px;
+    border: none;
+    outline: 0;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    background-image: url("../Images/nav/right_arrow.png");
+}
 
 /*Explore*/
 
@@ -304,3 +334,9 @@ div.select-area.map.select-four{
         	margin-top: 250px;
         	height: auto;
         }
+
+
+
+
+
+
